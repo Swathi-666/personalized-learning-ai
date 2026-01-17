@@ -1,26 +1,17 @@
 function recommend() {
-    var topic = document.getElementById("topic").value;
-    var score = document.getElementById("score").value;
-    var output = document.getElementById("output");
+    const topic = document.getElementById("topic").value;
+    const score = parseInt(document.getElementById("score").value);
+    const output = document.getElementById("output");
 
-    if (topic === "" || score === "") {
-        output.innerText = "Please enter both topic and score.";
+    if (!topic || isNaN(score)) {
+        output.innerHTML = "<b>Please enter both topic and score.</b>";
         return;
     }
 
-    score = parseInt(score);
+    let recommendation = `<b>Topic:</b> ${topic}<br><br>`;
 
     if (score < 50) {
-        output.innerText =
-            "Your score in " + topic +
-            " indicates weak understanding. Revise basics using visual resources and practice daily.";
-    } else if (score < 75) {
-        output.innerText =
-            "Your performance in " + topic +
-            " is average. Focus on problem-solving and concept reinforcement.";
-    } else {
-        output.innerText =
-            "You are strong in " + topic +
-            ". Proceed to advanced topics and application-based learning.";
-    }
-}
+        recommendation += `
+        <b>Performance Level:</b> Needs Improvement<br>
+        <b>Insights:</b> Weak conceptual under
+
