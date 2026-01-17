@@ -1,19 +1,26 @@
-function getRecommendation() {
-    const score = document.getElementById("score").value;
-    const result = document.getElementById("result");
+function recommend() {
+    var topic = document.getElementById("topic").value;
+    var score = document.getElementById("score").value;
+    var output = document.getElementById("output");
 
-    if (score === "") {
-        result.innerText = "Please enter your score.";
+    if (topic === "" || score === "") {
+        output.innerText = "Please enter both topic and score.";
         return;
     }
 
-    const numScore = parseInt(score);
+    score = parseInt(score);
 
-    if (numScore >= 80) {
-        result.innerText = "Excellent! Focus on advanced topics and mock tests.";
-    } else if (numScore >= 50) {
-        result.innerText = "Good progress. Revise weak areas and practice regularly.";
+    if (score < 50) {
+        output.innerText =
+            "Your score in " + topic +
+            " indicates weak understanding. Revise basics using visual resources and practice daily.";
+    } else if (score < 75) {
+        output.innerText =
+            "Your performance in " + topic +
+            " is average. Focus on problem-solving and concept reinforcement.";
     } else {
-        result.innerText = "Needs improvement. Start with basics and visual learning resources.";
+        output.innerText =
+            "You are strong in " + topic +
+            ". Proceed to advanced topics and application-based learning.";
     }
 }
