@@ -1,6 +1,5 @@
-console.log("JS loaded");
-function recommend() {
-      console.log("Button clicked");
+// Make recommend function global
+window.recommend = function() {
     const topic = document.getElementById("topic").value;
     const score = parseInt(document.getElementById("score").value);
     const output = document.getElementById("output");
@@ -51,6 +50,4 @@ function recommend() {
     }
 
     output.innerHTML = recommendation;
-}
-
-
+};
